@@ -29,12 +29,19 @@
                 Console.WriteLine(name);
             }
 
+            Console.WriteLine();
             // deze for lussen zijn hetzelfde
+            PrintNames(names);
+            // kan ook in een methode
 
 
         }
         public static void PrintNames(string[] names) 
         {
+            foreach (string name in names)
+            {
+                Console.WriteLine(name);
+            }
         }
     }
 }
