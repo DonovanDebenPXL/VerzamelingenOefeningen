@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerzamelingenLabo", "Verzam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerzamelingenIntro", "VerzamelingenIntro\VerzamelingenIntro.csproj", "{1D9ACC94-1947-478D-96BE-458AE57BB9E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintStudents", "PrintStudents\PrintStudents.csproj", "{1EA038AA-E71B-4E99-B0AD-7066D9A59784}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1D9ACC94-1947-478D-96BE-458AE57BB9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D9ACC94-1947-478D-96BE-458AE57BB9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D9ACC94-1947-478D-96BE-458AE57BB9E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EA038AA-E71B-4E99-B0AD-7066D9A59784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EA038AA-E71B-4E99-B0AD-7066D9A59784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EA038AA-E71B-4E99-B0AD-7066D9A59784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EA038AA-E71B-4E99-B0AD-7066D9A59784}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
