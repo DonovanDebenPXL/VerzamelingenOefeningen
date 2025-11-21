@@ -8,11 +8,7 @@ namespace PokemonCollections.Models
 {
     internal class Pokemon
     {
-        private const string WaterType = "Water";
-        private const string FireType = "Fire";
-        private const string GrassType = "Grass";
-        private const string ElectricType = "Electric";
-
+        private readonly string[] AvailableTypes = { "Normal", "Water", "Fire", "Grass", "Electric", "Fairy", "Fighting","Flying", "Dark", "Steel", "Ghost", "Bug", "Ground", "Rock", "Psychic"};
 
         public string Name { get; set; }
         public int Level { get; set; }
@@ -23,14 +19,14 @@ namespace PokemonCollections.Models
             get { return _type; }
             set
             {
-                if (value.Equals(WaterType) || value.Equals(FireType) || value.Equals(GrassType) || value.Equals(ElectricType))
+                if (Array.Exists(AvailableTypes, element => element.Equals(value)))
                 {
                     _type = value;
                     return;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid Pokemon type. Allowed types are: Water, Fire, Grass, Electric.");
+                    throw new ArgumentException($"{value} is geen geldig type.");
                 }
             }
         }

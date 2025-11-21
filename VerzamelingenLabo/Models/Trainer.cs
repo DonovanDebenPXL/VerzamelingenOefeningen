@@ -9,6 +9,6 @@ namespace PokemonCollections.Models
     internal class Trainer
     {
         public string Name { get; set; }
-        public List<Pokemon> Pokemons { get; set; }
+        public Pokemon[] PokemonTeam { get; set; }
     }
 }
