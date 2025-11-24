@@ -16,42 +16,54 @@ namespace LaboStarWars.Models
 
         public string DescribeCharacter()
         {
-            return $"{Name}, {Rank} van de {Alliance}, heeft een {LightSaberColor} lightsaber.";
+            return $"{Name}, {Rank} of the {Alliance}, has a {LightSaberColor} lightsaber.";
         }
         public void ShowQuotes()
         {
-            foreach (var quote in Quotes)
+            foreach (string quote in Quotes)
             {
                 Console.WriteLine($"- \"{quote}\"");
+            }
+            if (Quotes.Count == 0)
+            {
+                Console.WriteLine("No quotes available.");
+
             }
         }
         public void AddQuote(string quote)
         {
             Quotes.Add(quote);
         }
-        public void RemoveQuote(string quote)
+        public void RemoveQuote(int indexOfQuote)
         {
-            Quotes.Remove(quote);
-        }
-        public void KnowsQuote(string quote)
-        {
-            if (Quotes.Contains(quote))
+
+            if (indexOfQuote >= 0 || indexOfQuote < Quotes.Count)
             {
-                Console.WriteLine($"{Name} kent de quote: \"{quote}\"");
+                this.Quotes.RemoveAt(indexOfQuote);
             }
             else
             {
-                Console.WriteLine($"{Name} kent de quote: \"{quote}\" niet");
+                Console.WriteLine("Geen geldige index.");
+            }
+
+
+        }
+        public bool KnowsQuote(string quote)
+        {
+            if (Quotes.Contains(quote))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         public void ForgetAllQuotes()
         {
             Quotes.Clear();
         }
-        public bool isSith()
-        {
-            return Alliance.Contains("Sith");
-        }
+        
 
     }
 }

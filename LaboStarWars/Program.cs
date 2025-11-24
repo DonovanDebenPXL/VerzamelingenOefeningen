@@ -117,21 +117,102 @@ namespace LaboStarWars
                 Console.WriteLine("\nQuotes:");
                 characters[index].ShowQuotes();
 
-                Console.WriteLine("\nGebruik de pijltjestoetsen om te navigeren (Links/Rechts), of druk op Escape om af te sluiten.");
+                Console.WriteLine("\nGebruik de pijltjestoetsen om te navigeren (Links/Rechts), Insert om een quote toe te voegen, Delete om een quote te verwijderen of F om alle quotes te verwijderen.");
+                Console.WriteLine("\nDruk op K om een quote op te zoeken en op S om alle Sith characters te tonen.");
+                Console.WriteLine("\nDruk op escape om af te sluten");
 
                 var key = Console.ReadKey(true).Key;
                 if (key == ConsoleKey.RightArrow)
                 {
-                    index = (index + 1) % characters.Count;
+                    index++;
+                    if (index >= characters.Count)
+                    {
+                        index = 0;
+                    }
+
                 }
                 else if (key == ConsoleKey.LeftArrow)
                 {
-                    index = (index - 1 + characters.Count) % characters.Count;
+                    index--;
+                    if (index < 0)
+                    {
+                        index = characters.Count - 1;
+                    }
+                }
+                else if (key == ConsoleKey.Insert)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Voer een nieuwe quote in:" );
+                    string quote = Console.ReadLine();
+                    characters[index].AddQuote(quote);
+                }
+                else if (key == ConsoleKey.Delete)
+                {
+                    Console.WriteLine();
+                    Console.Write("Welke quote wil je verwijderen: ");
+                    int quoteNumber = int.Parse(Console.ReadLine());
+                    characters[index].RemoveQuote(quoteNumber);
+                }
+                else if (key == ConsoleKey.K)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Welke quote wil je opzoeken: ");
+                    string quote = Console.ReadLine();
+
+                    if (characters[index].KnowsQuote(quote))
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"{characters[index].Name} kent die quote.");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"{characters[index].Name} kent die quote niet.");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                    }
+
                 }
                 else if (key == ConsoleKey.Escape)
                 {
                     break;
                 }
+                else if (key == ConsoleKey.F)
+                {
+                    characters[index].ForgetAllQuotes();
+                    Console.WriteLine();
+                    Console.WriteLine("Alle quotes zijn vergeten.");
+                    Console.ReadKey();
+                }
+                else if (key == ConsoleKey.S)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Sith Characters:\n");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    foreach (StarWarsCharacter sith in FilterSiths(characters))
+                    {
+                        Console.WriteLine(sith.DescribeCharacter());
+                    }
+                    Console.ResetColor();
+                    Console.ReadKey();
+                }
+            }
+            static List<StarWarsCharacter> FilterSiths(List<StarWarsCharacter> characters)
+            {     
+                List<StarWarsCharacter> filtered = new List<StarWarsCharacter>();
+                foreach (StarWarsCharacter character in characters)
+                {
+                    if (character.Alliance.Equals("Sith"))
+                    {
+                        filtered.Add(character);
+                    }
+                }
+                return filtered;
+
             }
         }
     }
