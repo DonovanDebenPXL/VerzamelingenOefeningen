@@ -149,7 +149,7 @@ namespace LaboStarWars
                 else if (key == ConsoleKey.Delete)
                 {
                     Console.WriteLine();
-                    Console.Write("Welke quote wil je verwijderen: ");
+                    Console.Write($"Welke quote wil je verwijderen (0 - {characters[index].Quotes.Count - 1}): ");
                     int quoteNumber = int.Parse(Console.ReadLine());
                     characters[index].RemoveQuote(quoteNumber);
                 }
@@ -185,7 +185,7 @@ namespace LaboStarWars
                 {
                     characters[index].ForgetAllQuotes();
                     Console.WriteLine();
-                    Console.WriteLine("Alle quotes zijn vergeten.");
+                    Console.WriteLine($"Alle quotes van {characters[index].Name} zijn vergeten.");
                     Console.ReadKey();
                 }
                 else if (key == ConsoleKey.S)

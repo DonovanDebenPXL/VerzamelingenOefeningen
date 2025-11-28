@@ -33,6 +33,7 @@
 
             Console.WriteLine("De eerste 100 priemgetalen zijn: ");
             Console.WriteLine();
+
             for (int i = 0; i < primeNumbers.Length; i++)
             {
                 Console.Write(primeNumbers[i].ToString().PadLeft(maxLength, ' '));

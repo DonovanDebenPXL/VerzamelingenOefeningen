@@ -37,7 +37,7 @@ namespace LaboStarWars.Models
         public void RemoveQuote(int indexOfQuote)
         {
 
-            if (indexOfQuote >= 0 || indexOfQuote < Quotes.Count)
+            if (indexOfQuote >= 0 || indexOfQuote < Quotes.Count - 1)
             {
                 this.Quotes.RemoveAt(indexOfQuote);
             }
